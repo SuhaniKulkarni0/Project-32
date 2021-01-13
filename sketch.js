@@ -6,6 +6,7 @@ const Constraint = Matter.Constraint;
 
 score = 0
 
+//bg = background("white")
 
 function preload(){
   polyImg = loadImage("polygon.png")
@@ -65,7 +66,8 @@ function draw(){
 
   
   //background("lightblue")
-  backgroundImg()
+  
+  bgImg()
   fill("grey")
   text("SCORE: "+score,50,50)
 
@@ -151,7 +153,7 @@ function mouseReleased(){
   slingshot.fly();
 } 
 
-async function backgroundImg(){
+async function bgImg(){
   var response = await fetch("http://worldtimeapi.org/api/timezone/Australia/Sydney");
   var responseJSON = await response.json();
 
@@ -159,10 +161,10 @@ async function backgroundImg(){
   var hour = datetime.slice(11,13);
   
   if(hour >= 0600 && hour <= 1900){
-    background("blue")
+     background("black")
   }
   else{
-    background("black")
+   background("lightblue")
   }
 
 //  backgroundImg = loadImage(bg);
